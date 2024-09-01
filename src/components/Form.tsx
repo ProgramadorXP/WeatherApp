@@ -14,7 +14,7 @@ const Form = ({ setWeather, setError} : FormProps) => {
         countryCode: ""
     };
 
-    const { register, handleSubmit, formState: { errors }, } = useForm<FormData>();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>();
 
     const onSubmit: SubmitHandler<FormData> = async (formData) => {
         try {
@@ -27,6 +27,7 @@ const Form = ({ setWeather, setError} : FormProps) => {
                 setError(error.message);
             }
         }
+        reset();
     };
 
     return (
